@@ -1,0 +1,246 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<style>
+body{
+    background-color: rgb(255, 255, 255);
+}
+.set1{
+    height: 700px;
+    width: 100%;
+    background-image: url("{% static 'img/index/blog2.jpg'%}");
+    background-size: cover;
+    background-repeat: no-repeat;
+    filter: blur(0.2px);
+    opacity: 0.7;
+}
+#text1{
+    font-size: 4rem;
+    color: white;
+    margin-top: 7%;
+    text-align: center;
+}
+#text2{
+    font-size: 2.4rem;
+    color: rgb(255, 255, 255);
+    margin-top: 1%;
+    text-align: center;
+}
+.search{
+    display: flex;
+   align-items: center;
+   justify-content: center;
+   margin-top: 4%;
+}
+#clicktosearch{
+    height: 55px;
+    width: 9%;
+    background-color: rgb(245, 65, 65);
+    border: 1px solid rgb(245, 65, 65);
+}
+#searchinput{
+    height: 55px;
+    width: 30%;
+    background-color: rgb(255, 255, 255);
+    border: 1px solid rgb(255, 255, 255);
+}
+
+/* design for blog content */
+.content{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+#blogtitle{
+    margin-top: 2%;
+    text-align: center;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+.content1 h2{
+    font-size: 3rem;
+}
+.description{
+
+    width: 100%;
+    max-width: 700px;
+    height: 300px;
+}
+.description p{
+    font-size: 1.1rem;
+}
+.wholeblog{
+    width: 80%;
+    margin-left: 10%;
+    font-size: 1.32rem;
+    color: black;
+}
+.fimg{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 0.5%;
+}
+.fimg img{
+    border-radius: 12px;
+}
+#bimage{
+    width: 600px;
+}
+#pimg{
+    width: 1400px;
+}
+
+/* Making the page responsive */
+@media (max-width: 1200px){
+
+#text1 {
+    font-size: 3rem;
+    color: white;
+    margin-top: 12%;
+    text-align: center;
+}
+#text2 {
+    font-size: 2rem;
+    color: rgb(255, 255, 255);
+    margin-top: 1%;
+    text-align: center;
+}
+#clicktosearch {
+    height: 55px;
+    width: 17%;
+    background-color: rgb(245, 65, 65);
+    border: 1px solid rgb(245, 65, 65);
+}
+.set1 {
+    height: 600px;
+    width: 100%;
+    background-image: url("{% static 'img/index/blog2.jpg'%}");
+    filter: blur(0.2px);
+    opacity: 0.7;
+}
+.content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 150px;
+    margin-right: 50px;
+}
+}
+@media (max-width: 850px){
+    .content {
+    display: block;
+    align-items: center;
+    justify-content: center;
+    margin-left: 150px;
+    margin-right: 50px;
+}
+.content1 h2 {
+    font-size: 2rem;
+}
+.description {
+    width: 100%;
+    max-width: 700px;
+    height: 100%;
+}
+}
+@media (max-width: 700px){
+    .content {
+    display: block;
+    align-items: center;
+    justify-content: center;
+    margin-left: 30px;
+    margin-right: 30px;
+}
+}
+@media (max-width: 450px){
+    #text1 {
+    font-size: 2rem;
+    color: white;
+    margin-top: 31%;
+    text-align: center;
+}
+#text2 {
+    font-size: 1rem;
+    color: rgb(255, 255, 255);
+    margin-top: 1%;
+    text-align: center;
+}
+#clicktosearch {
+    height: 55px;
+    width: 41%;
+    background-color: rgb(245, 65, 65);
+    border: 1px solid rgb(245, 65, 65);
+}
+.set1 {
+    height: 400px;
+    width: 100%;
+    background-image: url("{% static 'img/index/blog2.jpg'%}");
+    filter: blur(0.2px);
+    opacity: 0.7;
+}
+}
+
+@media (max-width: 600px){
+    #bimage {
+   width: 300px;
+}
+}
+</style>
+
+<div class="allblog">
+    <div class="set1">
+        .
+        <h1 id="text1">BEST PLACE TO READ ALL THE NEW BLOGS</h1>
+        <h1 id="text2">ABOUT INSTRESTING TOPICS ( SEARCH YOUR BLOG BELOW )  </h1>
+        <div class="search">
+            <input id="searchinput" value="" placeholder="Search The blog title you want to find or want to read">
+            <button id="clicktosearch">Search</button>
+
+        </div>
+    </div>
+    .
+    <!--blog start -->
+    <h1 id="blogtitle">Blog Title : {{post.title}}</h1>
+    <div class="content">
+        .
+        
+        <div class="content1">
+            <h2>PROJECT DESCRIPTION </h1>
+                
+                <div class="description">
+                    <p>{{post.desc}}</p>
+                </div>
+        </div>
+        <div class="content2">
+            <img id="bimage" src="{% static 'img/allblog/try1.png'%}" alt="">
+        </div>
+    </div>
+    <div class="wholeblog">
+        <P>Look at the UI images of the Project , Sample images have been presentd Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis aut est quaerat temporibus pariatur dicta doloremque dolore iste esse perferendis quisquam ullam, quis voluptatum atque, qui ab praesentium consectetur officiis exercitationem accusantium nemo. Velit a eligendi labore temporibus? Quaerat recusandae consectetur distinctio laudantium animi et eius. Voluptatibus totam nemo delectus.</P>
+        <div class="fimg">
+        <img id="pimg" class="img-fluid" src="{{post.fimage.url}}" alt="">
+        </div>
+        .
+        <div class="fimg">
+        <img id="pimg" class="img-fluid" src="{{post.simage.url}}" alt="">
+        </div>
+        .
+        <div class="fimg">
+            <img id="pimg" class="img-fluid" src="{{post.timage.url}}" alt="">
+            </div>
+            .
+        <div class="fimg">
+        <img id="pimg" class="img-fluid" src="{{post.forthimage.url}}" alt="">
+        </div>
+       
+        
+    </div>
+		<!--blog end -->
+</div>
+
+{% endblock content %}
+

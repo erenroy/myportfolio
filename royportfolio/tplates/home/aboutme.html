@@ -1,0 +1,309 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<style>
+body{
+    background-color: rgb(255, 255, 255);
+}
+#content1{
+    margin-top: 4%;
+    text-align: center;
+}
+.aboutpage p{
+    text-align: center;
+    font-size: 1.5rem;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    color: black;
+}
+#line{
+    color: rgb(10, 182, 76);
+    height: 10px;
+    margin-left: 20%;
+    margin-right: 20%;
+    width: 60%;
+    border-radius: 10px;
+}
+.about1{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.about2{
+    width: 40%;
+}
+.about2 h1{
+    font-size: 3rem;
+    font-weight: 800;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.para h6{
+    font-size: 1.6rem;
+    font-weight: 200;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+#contactme{
+    margin-top: 2%;
+    margin-left: 0%;
+    width: 18%;
+    height: 50px;
+    background-color: rgb(67, 180, 255);
+    border: 1px solid rgb(67, 180, 255);
+}
+/* Making the page responsive */
+@media (max-width: 1250px){
+    .about1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 60px;
+}
+.para h6 {
+    font-size: 1.2rem;
+    font-weight: 200;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+#contactme {
+    margin-top: 2%;
+    margin-left: 0%;
+    width: 37%;
+    height: 50px;
+    background-color: rgb(67, 180, 255);
+    border: 1px solid rgb(67, 180, 255);
+}
+}
+@media (max-width: 1100px){
+    .about1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 110px;
+}
+.para h6 {
+    font-size: 1rem;
+    font-weight: 200;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+.home3 {
+    display: block;
+}
+.image1 {
+    margin-left: 27%;
+    width: 14%;
+}
+.image1 img {
+    width: 330%;
+    border-radius: 500px;
+    border: 1px solid rgb(255, 255, 255);
+}
+.image1 h2 {
+    text-align: center;
+    margin-left: 0%;
+    font-size: 1.9rem;
+    width: 500px;
+}
+.aboutpage p {
+    text-align: center;
+    font-size: 1.5rem;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    color: black;
+    width: 600px;
+}
+.image2 {
+    margin-left: 27%;
+    width: 14%;
+}
+.image2 img {
+    width: 330%;
+    border-radius: 500px;
+    border: 1px solid rgb(255, 255, 255);
+}
+.image2 h2 {
+    text-align: center;
+    margin-left: 0%;
+    font-size: 1.9rem;
+    width: 500px;
+}
+.image3 {
+    margin-left: 27%;
+    width: 14%;
+}
+.image3 img {
+    width: 330%;
+    border-radius: 500px;
+    border: 1px solid rgb(255, 255, 255);
+}
+.image3 h2 {
+    text-align: center;
+    margin-left: 0%;
+    font-size: 1.9rem;
+    width: 500px;
+}
+}
+@media (max-width: 950px){
+    .about1{
+        display: block;
+    }
+    .about2 {
+    width: 100%;
+}
+    .about2 h1 {
+    font-size: 3rem;
+    font-weight: 800;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+}
+#content1 {
+    margin-top: 8%;
+    text-align: center;
+}
+.aboutpage p {
+    margin-left: 1%;
+    text-align: center;
+    font-size: 1.5rem;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    color: black;
+    width: 800px;
+    margin-left: -120%;
+}
+#line {
+    color: rgb(10, 182, 76);
+    height: 10px;
+    margin-left: 5%;
+    margin-right:5%;
+    width: 90%;
+    border-radius: 10px;
+}
+#contactme {
+    margin-top: 2%;
+    margin-left: 25%;
+    width: 37%;
+    height: 50px;
+    background-color: rgb(67, 180, 255);
+    border: 1px solid rgb(67, 180, 255);
+}
+#welcome{
+    margin-left: 10%;
+}
+}
+ @media (max-width: 720px){
+    #welcome {
+    margin-left: 1%;
+    font-size: 1rem;
+}
+.aboutpage p {
+
+    width: 600px;
+}
+.para h6 {
+    font-size: 1rem;
+    font-weight: 200;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    margin-left: -90px;
+}
+.image1 h2 {
+    text-align: center;
+    margin-left: -90%;
+    font-size: 1.9rem;
+    width: 500px;
+}
+.image2 h2 {
+    text-align: center;
+    margin-left: -90%;
+    font-size: 1.9rem;
+    width: 500px;
+}
+.image3 h2 {
+    text-align: center;
+    margin-left: -90%;
+    font-size: 1.9rem;
+    width: 500px;
+}
+ }
+
+@media (max-width: 570px){
+    .aboutpage p {
+    width: 500px;
+    font-size: 1rem;
+    margin-left: -200%;
+}
+#myimg{
+    margin-left: -100px;
+}
+.image1 h2 {
+    margin-left: -190%;
+}
+ .image2 h2 {
+    margin-left: -190%;
+} 
+.image3 h2 {
+    margin-left: -190%;
+} 
+}
+
+@media (max-width: 450px){
+    #content1 {
+    margin-top: 13%;
+    text-align: center;
+}
+#welcome {
+    margin-left: 1%;
+    font-size: 0.8rem;
+}
+.fotterpart {
+    height: 70px;
+    background-color: black;
+    width: 110%;
+}
+.fotterpart h1 {
+    font-size: 0.81rem;
+}
+}
+
+
+
+</style>
+
+<div class="aboutpage">
+    .
+    <h1 id="content1">About Us Page</h1>
+    <p id="welcome">Welcome to my about section . Look at my details , my projects and blogs </p>
+    <hr id="line">
+    <div class="about1">
+        <div class="about2">
+            <h1>Hi, I am Roy</h1>
+            <div class="para">
+            <h6>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sed asperiores minima suscipit alias a sunt accusantium, sint, laboriosam velit, illum et officiis corrupti debitis nostrum. Nulla nostrum et tempora ad dolor doloribus provident enim corrupti laborum! Accusantium in corporis enim, necessitatibus a omnis vitae eos amet! Quae velit iure saepe molestias quia tempore est expedita, omnis repellendus, laborum magni debitis modi accusantium harum fugit, qui porro praesentium cum amet sit ipsa. Consectetur illum inventore blanditiis sed dolore ea aliquid magnam.</h6>
+            <button id="contactme">Contact Me</button>
+        </div>
+        </div>
+        <div class="about3">
+            <img class="img-fluid" src="{% static 'img/allblog/try1.png' %}" alt="">
+        </div>
+    </div>
+    <h2 id="buisnessdevelopmment">ABOUT BUSINESS DEVELOPMENT SOLUTIONS</h2>
+    <div class="home2">
+      <div class="home3">
+        <div class="image1">
+          <img src="{% static 'home2/2.jpg' %}" alt="">
+          <h2>Our Mission</h2>
+          <p>At Business Development Solutions, our mission is to provide exceptional consulting services that empower
+            our clients to achieve their business goals. We strive to deliver customized solutions that meet the unique
+            needs of each client.</p>
+        </div>
+        <div class="image2">
+          <img src="{% static 'home2/3.jpg' %}" alt="">
+          <h2>Our Team</h2>
+          <p>Our team consists of experienced consultants with diverse backgrounds in various industries. We combine our expertise to deliver innovative solutions to our clients.</p>
+        </div>
+        <div class="image3">
+          <img src="{% static 'home2/1.jpg' %}" alt="">
+          <h2>Our Approach</h2>
+          <p>We believe in a collaborative approach to consulting, where we work closely with our clients to understand their needs and develop solutions together. Our goal is to build long-lasting relationships with our clients.</p>
+        </div>
+      </div>
+    </div>
+</div>
+
+{% endblock content %}
+

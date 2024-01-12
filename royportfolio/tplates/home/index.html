@@ -1,0 +1,2019 @@
+<!DOCTYPE html>
+<!-- Coding by CodingNepal || www.codingnepalweb.com -->
+{% load static %}
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
+    <!-- Favicon -->
+    <link href="{% static 'img/favicon.ico' %}" rel="icon">
+    
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600&family=Nunito:wght@600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Icon Font Stylesheet -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+    
+    <!-- Libraries Stylesheet -->
+    <link href="{% static 'lib/animate/animate.min.css' %}" rel="stylesheet">
+    <link href="{% static 'lib/owlcarousel/assets/owl.carousel.min.css' %}" rel="stylesheet">
+    <link href="{% static 'lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css' %}" rel="stylesheet" />
+    
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+
+    
+    
+    <!-- Template Stylesheet -->
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+    
+  <script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
+    <style>
+           
+      /* Import Google font - Poppins */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
+* {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+font-family: "Poppins", sans-serif;
+}
+:root {
+--white-color: #fff;
+--blue-color: #4070f4;
+--grey-color: #707070;
+--grey-color-light: #aaa;
+}
+body {
+background-color: #e7f2fd;
+transition: all 0.5s ease;
+}
+body.dark {
+background-color: #333;
+}
+body.dark {
+--white-color: #333;
+--blue-color: #fff;
+--grey-color: #f2f2f2;
+--grey-color-light: #aaa;
+}
+
+/* navbar */
+.navbar {
+position: fixed;
+top: 0;
+width: 100%;
+left: 0;
+background-color: var(--white-color);
+display: flex;
+align-items: center;
+justify-content: space-between;
+padding: 15px 30px;
+z-index: 1000;
+box-shadow: 0 0 2px var(--grey-color-light);
+}
+.logo_item {
+display: flex;
+align-items: center;
+column-gap: 10px;
+font-size: 22px;
+font-weight: 500;
+color: var(--blue-color);
+}
+.navbar img {
+width: 35px;
+height: 35px;
+border-radius: 50%;
+}
+.search_bar {
+height: 47px;
+max-width: 430px;
+width: 100%;
+}
+.search_bar input {
+height: 100%;
+width: 100%;
+border-radius: 25px;
+font-size: 18px;
+outline: none;
+background-color: var(--white-color);
+color: var(--grey-color);
+border: 1px solid var(--grey-color-light);
+padding: 0 20px;
+}
+.navbar_content {
+display: flex;
+align-items: center;
+column-gap: 25px;
+}
+.navbar_content i {
+cursor: pointer;
+font-size: 20px;
+color: var(--grey-color);
+}
+
+/* sidebar */
+.sidebar {
+background-color: var(--white-color);
+width: 260px;
+position: fixed;
+top: 0;
+left: 0;
+height: 100%;
+padding: 80px 20px;
+z-index: 100;
+overflow-y: scroll;
+box-shadow: 0 0 1px var(--grey-color-light);
+transition: all 0.5s ease;
+}
+.sidebar.close {
+padding: 60px 0;
+width: 80px;
+}
+.sidebar::-webkit-scrollbar {
+display: none;
+}
+.menu_content {
+position: relative;
+}
+.menu_title {
+margin: 15px 0;
+padding: 0 20px;
+font-size: 18px;
+}
+.sidebar.close .menu_title {
+padding: 6px 30px;
+}
+.menu_title::before {
+color: var(--grey-color);
+white-space: nowrap;
+}
+.menu_dahsboard::before {
+content: "Dashboard";
+}
+.menu_editor::before {
+content: "Editor";
+}
+.menu_setting::before {
+content: "Setting";
+}
+.sidebar.close .menu_title::before {
+content: "";
+position: absolute;
+height: 2px;
+width: 18px;
+border-radius: 12px;
+background: var(--grey-color-light);
+}
+.menu_items {
+padding: 0;
+list-style: none;
+}
+.navlink_icon {
+position: relative;
+font-size: 22px;
+min-width: 50px;
+line-height: 40px;
+display: inline-block;
+text-align: center;
+border-radius: 6px;
+}
+.navlink_icon::before {
+content: "";
+position: absolute;
+height: 100%;
+width: calc(100% + 100px);
+left: -20px;
+}
+.navlink_icon:hover {
+background: var(--blue-color);
+}
+.sidebar .nav_link {
+display: flex;
+align-items: center;
+width: 100%;
+padding: 4px 15px;
+border-radius: 8px;
+text-decoration: none;
+color: var(--grey-color);
+white-space: nowrap;
+}
+.sidebar.close .navlink {
+display: none;
+}
+.nav_link:hover {
+color: var(--white-color);
+background: var(--blue-color);
+}
+.sidebar.close .nav_link:hover {
+background: var(--white-color);
+}
+.submenu_item {
+cursor: pointer;
+}
+.submenu {
+display: none;
+}
+.submenu_item .arrow-left {
+position: absolute;
+right: 10px;
+display: inline-block;
+margin-right: auto;
+}
+.sidebar.close .submenu {
+display: none;
+}
+.show_submenu ~ .submenu {
+display: block;
+}
+.show_submenu .arrow-left {
+transform: rotate(90deg);
+}
+.submenu .sublink {
+padding: 15px 15px 15px 52px;
+}
+.bottom_content {
+position: fixed;
+bottom: 60px;
+left: 0;
+width: 260px;
+cursor: pointer;
+transition: all 0.5s ease;
+}
+.bottom {
+position: absolute;
+display: flex;
+align-items: center;
+left: 0;
+justify-content: space-around;
+padding: 18px 0;
+text-align: center;
+width: 100%;
+color: var(--grey-color);
+border-top: 1px solid var(--grey-color-light);
+background-color: var(--white-color);
+}
+.bottom i {
+font-size: 20px;
+}
+.bottom span {
+font-size: 18px;
+}
+.sidebar.close .bottom_content {
+width: 50px;
+left: 15px;
+}
+.sidebar.close .bottom span {
+display: none;
+}
+.sidebar.hoverable .collapse_sidebar {
+display: none;
+}
+#sidebarOpen {
+display: none;
+}
+@media screen and (max-width: 768px) {
+#sidebarOpen {
+  font-size: 25px;
+  display: block;
+  margin-right: 10px;
+  cursor: pointer;
+  color: var(--grey-color);
+}
+.sidebar.close {
+  left: -100%;
+}
+.search_bar {
+  display: none;
+}
+.sidebar.close .bottom_content {
+  left: -100%;
+}
+}
+  
+/* Adding my css */
+.fullpage{
+  height: 800px;
+  width: 100%;
+  /* background-image: url("{% static '1.jpeg'  %}"); */
+  background-image: url("{% static 'img/home2/back.jpg' %}");
+}
+.fullpage h1{
+  text-align: center;
+  color: white;
+  font-size: 4.5rem;
+  margin-top: 8%;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+.fullpage p{
+  text-align: center;
+  color: white;
+  font-size: 2.5rem;
+  margin-top: 1%;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+.fullpage h2{
+  text-align: center;
+  color: white;
+  font-size: 2.5rem;
+  margin-top: 1%;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+#contact{
+  height: 7%;
+  width: 8%;
+  background-color: aqua;
+  margin-left: 46%;
+  margin-top: 5%;
+  font-size: 1.2rem;
+}
+
+
+/* Adding the css for our mission */
+
+.typingelement {
+  color: rgb(252, 255, 54);
+}
+
+#buisnessdevelopmment {
+  color: rgb(224, 173, 20);
+  text-align: center;
+  font-size: 2.9rem;
+  font-weight: 600;
+  font-family: 'Righteous', serif, system-ui;
+  margin-top: 2%;
+  margin-bottom: 3%;
+}
+
+.home3 {
+  display: flex;
+}
+
+.image1 {
+  margin-left: 20%;
+  width: 14%;
+}
+
+.image1 img {
+  width: 125%;
+  border-radius: 500px;
+  border: 1px solid rgb(255, 255, 255);
+}
+
+.image1 h2 {
+  text-align: center;
+  margin-left: 10%;
+  font-size: 1.9rem;
+}
+
+.image1 p {
+  text-align: center;
+  margin-left: 10%;
+  font-size: 1.4rem;
+  margin-left: -10%;
+  margin-right: -20%;
+  color: #6d6b6b;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+}
+.image2 {
+  margin-left: 8%;
+  width: 14%;
+}
+
+.image2 img {
+  width: 125%;
+  border-radius: 500px;
+  border: 1px solid rgb(255, 255, 255);
+}
+
+.image2 h2 {
+  text-align: center;
+  margin-left: 10%;
+  font-size: 1.9rem;
+}
+
+.image2 p {
+  text-align: center;
+  margin-left: 10%;
+  font-size: 1.4rem;
+  margin-left: -10%;
+  margin-right: -20%;
+  color: #6d6b6b;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.image3 {
+  margin-left: 8%;
+  width: 14%;
+}
+
+.image3 img {
+  width: 125%;
+  border-radius: 500px;
+  border: 1px solid rgb(255, 255, 255);
+}
+
+.image3 h2 {
+  text-align: center;
+  margin-left: 10%;
+  font-size: 1.9rem;
+}
+
+.image3 p {
+  text-align: center;
+  margin-left: 10%;
+  font-size: 1.4rem;
+  margin-left: -10%;
+  margin-right: -20%;
+  color: #6d6b6b;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+/* Adding signup css */
+.cons1{
+height: 480px;
+width: 80%;
+/* background: #f8fafb; */
+padding: 150px 0;
+margin-left: 10%;
+background-image: url("{% static 'img/contact/back3.jpg' %}");
+}
+
+.cons1 h4{
+font-size: 24px;
+  font-weight: 500;
+  text-transform: uppercase;
+  text-align: center;
+  color: white;
+}
+.cons1 h5{
+font-size: 16px;
+margin-top: 1%;
+  font-weight: 400;
+  text-transform: uppercase;
+  text-align: center;
+  color: white;
+}
+.inputbox{
+display: flex;
+align-items: center;
+justify-content: center;
+margin-top: 3%;
+}
+#contactbutton{
+height: 55px;
+width: 8.6%;
+background-color: rgb(255, 108, 108);
+color: white;
+border: 1px solid rgb(255, 108, 108);
+}
+#contactinput{
+height: 55px;
+width: 25%;
+background-color: rgb(255, 255, 255);
+color: white;
+border: 1px solid rgb(218, 215, 215);
+box-shadow: 0px 5px 15px rgba(10,10,10,0.5);
+}
+
+
+  /* Starting of faq */
+  .faqs h1{
+    text-align: center;
+  position: relative;
+  font-weight: 700;
+  font-size: 55px;
+  line-height: normal;
+  color: rgba(32, 57, 110, 1);
+  margin-bottom: 2.6rem;
+  margin-top: 1%;
+}
+
+.container {
+margin: 0 auto;
+padding: 4rem;
+width: 100%;
+}
+.accordion .accordion-item {
+border-bottom: 1px solid #e5e5e5;
+border-radius: 14px;
+}
+.accordion .accordion-item button[aria-expanded='true'] {
+border-bottom: 1px solid #000000;
+}
+.accordion button {
+position: relative;
+display: block;
+text-align: left;
+width: 100%;
+padding: 1em 0;
+color: #7288a2;
+font-size: 1.55rem;
+font-weight: 400;
+border: none;
+background: none;
+outline: none;
+}
+.accordion button:hover,
+.accordion button:focus {
+cursor: pointer;
+color: #000000;
+}
+.accordion button:hover::after,
+.accordion button:focus::after {
+cursor: pointer;
+color: #03b5d2;
+border: 1px solid #03b5d2;
+}
+.accordion button .accordion-title {
+margin-left: 2%;
+color: rgba(24, 76, 161, 1);
+padding: 1em 1.5em 1em 0;
+}
+.accordion button .icon {
+display: inline-block;
+position: absolute;
+top: 32px;
+  right: 36px;
+width: 22px;
+height: 22px;
+border: 1px solid black;
+border-radius: 22px;
+}
+.accordion button .icon::before {
+display: block;
+position: absolute;
+content: '';
+top: 9px;
+left: 5px;
+width: 10px;
+height: 2px;
+background: currentColor;
+}
+.accordion button .icon::after {
+display: block;
+position: absolute;
+content: '';
+top: 5px;
+left: 9px;
+width: 2px;
+height: 10px;
+background: currentColor;
+}
+.accordion button[aria-expanded='true'] {
+color: #03b5d2;
+}
+.accordion button[aria-expanded='true'] .icon::after {
+width: 0;
+}
+.accordion button[aria-expanded='true'] + .accordion-content {
+opacity: 1;
+max-height: 9em;
+transition: all 200ms linear;
+will-change: opacity, max-height;
+}
+.accordion .accordion-content {
+opacity: 0;
+max-height: 0;
+overflow: hidden;
+transition: opacity 200ms linear, max-height 200ms linear;
+will-change: opacity, max-height;
+}
+.accordion .accordion-content p {
+font-size: 1.4rem;
+font-weight: 300;
+margin: 2em 0;
+margin-left: 2%;
+}
+.accordion-item{
+margin-bottom: 20px;
+}
+
+/* Building the contact sectoion */
+.lastcontact{
+display: flex;
+background: rgba(41, 44, 48, 1);;
+}
+.lcontact1{
+margin-top: 12%;
+margin-left: 15%;
+margin-bottom: 13%;
+}
+.lcontact1 h1{
+color: #777676;
+font-weight: 600;
+font-size: 4rem;
+margin-bottom: 2%;
+}
+.lcontact1 h2{
+color: #ffffff;
+font-weight: 400;
+width: 40%;
+margin-top: 0.5%;
+font-size: 1.8rem;
+font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+margin-right: 0;
+}
+.lcontact2{
+margin-top: 4%;
+height: 700px;
+margin-left: 50%;
+width: 35%;
+background-color: white;
+position: absolute;
+border-radius: 50px;
+}
+.lcontact2 h1{
+color: rgba(32, 57, 110, 1);
+margin-left: 8%;
+margin-top: 2%;
+font-size: 3rem;
+font-weight: 600;
+}
+#inname{
+margin-left: 8%;
+margin-top: 2%;
+border: 1px solid rgb(45, 87, 165);
+height: 60px;
+width:70%;
+font-size: 1.12rem;
+border-radius: 10px;
+color: black;
+}
+#textname{
+margin-left: 8%;
+margin-top: 2%;
+border: 1px solid rgb(45, 87, 165);
+height: 200px;
+width:70%;
+font-size: 1.12rem;
+border-radius: 10px;
+color: black;
+}
+
+.submit-button {
+    display: inline-block;
+    padding: 15px 60px;
+    font-size: 30px;
+    text-align: center;
+    text-decoration: none;
+    color: #fff;
+    background: linear-gradient(to left, #3498db, #2ecc71);
+    border-radius: 5px;
+    transition: background 0.3s ease;
+    border-radius: 45px;
+    margin-left: 7%;
+    margin-top: 1%;
+  }
+
+  .recommendations{
+
+    text-align: center;
+    margin-top: 1%;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  }
+  .containers{
+  margin: 0 auto;
+  width: 70%;
+}
+
+/* Our services section */
+.services h1{
+color: rgba(32,57,110,1);
+  font-size: 3.3rem;
+  font-weight: 600;
+  text-align: center;
+
+}
+
+/* Making the page responsive */
+@media (max-width: 1760px){
+.clients h2 {
+  margin-left: 12%;
+  font-size: 6rem;
+  font-weight: 600;
+  font-family: 'Montserrat', sans-serif;
+}
+}
+@media (max-width: 1680px){
+.clients2 h3 {
+  color: white;
+  margin-left: 21%;
+  font-size: 2rem;
+}
+.clients2 h2 {
+  color: white;
+  margin-left: 20.8%;
+  font-size: 2rem;
+}
+}
+
+@media (max-width: 1560px){
+.clients h2 {
+  font-size: 4rem;
+}
+.clients h1 {
+  font-size: 4rem;
+}
+.clients2 h3 {
+  color: white;
+  margin-left: 16%;
+  font-size: 1.2rem;
+}
+.clients2 h4 {
+  color: white;
+  margin-left: 9%;
+  font-size: 1.2rem;
+}
+.clients2 h2 {
+  color: white;
+  margin-left: 14.8%;
+  font-size: 1.2rem;
+}
+.clients2 h1 {
+  color: white;
+  font-size: 1.2rem;
+  margin-left: 10%;
+}
+
+} 
+/* making the full page responsivve */
+
+@media (max-width: 1881px){
+#contactbutton1 {
+  height: 11vh;
+  width: 39vh;
+}
+.home6text {
+  height: 615px;
+}
+}
+@media (max-width: 1710px){
+.home6text {
+  height: 578px;
+}
+} 
+@media (max-width: 1620px){
+.lcontact2 {
+  height: 110%;
+  margin-left: 56%;
+
+}
+.home6text {
+  height: 546px;
+}
+} 
+@media (max-width: 1470px){
+.home6text {
+  height: 528px;
+}
+.custom-button {
+  margin-left: 26%;
+}
+} 
+@media (max-width: 1400px){
+.allservicefix {
+  display: block;
+  margin-left: 7%;
+}
+.service1 img {
+  width: 150%;
+}
+.allservices {
+  display: flex;
+  margin-left: 18%;
+  width: 59%;
+}
+.allservices2 {
+  display: flex;
+  display: none;
+}
+.home6text {
+  height: 513px;
+}
+.faqs h1 {
+  margin-bottom: -0.4rem;
+}
+} 
+@media (max-width: 1240px){
+.home1 h1 {
+  font-size: 2.6rem;
+}
+.image1 p {
+  font-size: 0.8rem;
+}
+.image2 p {
+  font-size: 0.8rem;
+}
+.image3 p {
+  font-size: 0.8rem;
+}
+.home6text h2 {
+  font-size: 30px;
+}
+.home6text h3 {
+  font-size: 30px;
+}
+.custom-button {
+  margin-left: 17%;
+  margin-top: -8%;
+}
+.home6text {
+  height: 474px;
+}
+.service1 h3 {
+  font-size: 1rem;
+}
+} 
+@media (max-width: 1130px){
+.home6img img {
+  width: 100%;
+}
+.home6text h2 {
+  margin-top: 0%;
+}
+.custom-button {
+  padding: 7px 40px;
+  margin-left: 28%;
+}
+.home6text {
+  height: 346px;
+}
+} 
+@media (max-width: 1250px){
+.lcontact2 {
+  height: 110%;
+  margin-left: 60%;
+}
+.lcontact2 h1 {
+  color: rgba(32, 57, 110, 1);
+  margin-left: 8%;
+  margin-top: 2%;
+  font-size: 2rem;
+  font-weight: 600;
+}
+.home6text {
+  height: 477px;
+}
+.custom-button {
+  margin-left: 22%;
+}
+}
+
+@media (max-width: 1080px){
+#buisnessdevelopmment {
+  font-size: 2rem;
+}
+.home6text {
+  height: 338px;
+}
+.lcontact1 h1 {
+  font-size: 3rem;
+}
+.lcontact1 h2 {
+  font-size: 1rem;
+  width: 100%;
+}
+.lastcontact {
+  height: 650px;
+}
+.row-cols-md-3>* {
+  flex: 0 0 auto;
+  width: 65.333333%;
+}
+.containers {
+  margin: 1px auto;
+  width: 70%;
+  margin-left: 32%;
+}
+} 
+@media (max-width: 1000px){
+.lastcontact {
+  display: block;
+  margin-top: 0;
+}
+.lcontact1 {
+  margin-top: 0%;
+}
+.lcontact1 h1 {
+  text-align: center;
+}
+.lcontact1 h2 {
+  font-size: 1.4rem;
+}
+.lcontact2 {
+  height: 110%;
+  margin-left: 25%;
+  margin-top: -10%;
+  width: 60%;
+}
+.lastcontact {
+  height: 1000px;
+}
+} 
+@media (max-width: 960px){
+.home6text {
+  height: 318px;
+}
+} 
+@media (max-width: 900px){
+.clients h2 {
+  font-size: 3rem;
+}
+.clients h1 {
+  font-size: 3rem;
+}
+.home6text h2 {
+  font-size: 17px;
+}
+.home6text h3 {
+  font-size: 16px;
+}
+.home6text {
+  height: 300px;
+}
+.service1 img {
+  width: 161%;
+}
+}
+@media (max-width: 760px){
+.clients h2 {
+  font-size: 2rem;
+}
+.clients2 h3 {
+  color: white;
+  margin-left: 13%;
+  font-size: 0.8rem;
+}
+.custom-button {
+  padding: 14px 30px;
+  margin-left: 28%;
+  font-size: 15px;
+}
+.home6text {
+  height: 269px;
+}
+.service1 h3 {
+  font-size: 0.7rem;
+}
+.accordion-item{
+width: 120%;
+}
+} 
+.fullpage{
+  /* background-image: url("{% static 'img/home2/back5.jpg' %}"); */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-position: center;
+  animation: backgroundChange 12s infinite;
+}
+
+@keyframes backgroundChange {
+  0%, 100%{
+    background-image: url("{% static 'img/home2/back5.jpg' %}");
+  }
+  33.33%{
+    background-image: url("{% static 'img/home2/back6.jpg' %}");
+  }
+ 66.66%{
+    background-image: url("{% static 'img/home2/back7.jpg' %}");
+  }
+  
+}
+/* Making the css signup and login */
+#signup{
+  background-color: #0d6efd;
+  border-radius: 10px;
+  border: 1px solid #0d6efd;
+}
+#login{
+  background-color: #0d6efd;
+  border-radius: 10px;
+  border: 1px solid #0d6efd;
+}
+
+.fotterpart{
+  height: 100px;
+  background-color: black;
+}
+.fotterpart h1{
+  font-size: 1.1rem;
+  font-weight: 100;
+  color: white;
+  text-align: center;
+}
+
+#subbuton{
+  background-color: transparent;
+  border: transparent;
+}
+.typingelement{
+  color: white;
+  text-align: center;
+}
+
+/* Making the page responsive */
+@media (max-width: 1500px){
+  .image1 h2 {
+    font-size: 1rem;
+}
+.image2 h2 {
+    font-size: 1rem;
+}
+.image3 h2 {
+    font-size: 1rem;
+}
+.image1 p {
+    font-size: 0.8rem;
+}
+.image2 p {
+    font-size: 0.8rem;
+}
+.image3 p {
+    font-size: 0.8rem;
+}
+#contact {
+    width: 16%;
+    margin-left: 40%;
+}
+}
+
+@media (max-width: 1350px){
+  .lcontact1 h1 {
+    font-size: 2rem;
+}
+.lcontact2 h1 {
+    color: rgba(32, 57, 110, 1);
+    margin-left: 8%;
+    margin-top: 2%;
+    font-size: 2rem;
+    font-weight: 600;
+}
+}
+ @media (max-width: 1050px){
+  .lastcontact {
+    height: 900px;
+}
+.lcontact1 {
+    margin-top: 3%;
+}
+.lcontact2 {
+    height: 104%;
+    margin-left: 28%;
+    margin-top: 180px;
+    width: 50%;
+}
+} 
+
+@media (max-width: 1000px){
+  .lcontact2 {
+    height: 104%;
+    margin-left: 28%;
+    margin-top: -90px;
+    width: 50%;
+}
+} 
+
+
+@media (max-width: 750px){
+  #contact {
+    width: 26%;
+    margin-left: 37%;
+}
+.fullpage {
+    height: 700px;
+}
+.home3 {
+    display: block;
+}
+.image1 img {
+    width: 350%;
+    margin-left: 50px;
+}
+.image1 h2 {
+    font-size: 2rem;
+    margin-left: 38%;
+}
+.image1 p {
+    font-size: 1rem;
+    width: 500px;
+}
+.image2 img {
+    width: 350%;
+    margin-left: 140px;
+}
+.image2 h2 {
+    font-size: 2rem;
+    margin-left: 168%;
+}
+.image2 p {
+    font-size: 1rem;
+    width: 500px;
+    margin-left: 62%;
+}
+.image3 img {
+    width: 350%;
+    margin-left: 140px;
+}
+.image3 h2 {
+    font-size: 2rem;
+    margin-left: 128%;
+}
+.image3 p {
+    font-size: 1rem;
+    width: 500px;
+    margin-left: 62%;
+}
+#contactinput {
+    width: 59%;
+}
+#contactbutton {
+    height: 55px;
+    width: 26.6%;
+}
+.cons1 h4 {
+    font-size: 12px;
+}
+.cons1 h5 {
+    font-size: 12px;
+}
+.cons1 h4 {
+    margin-top: -100px;
+}
+.cons1 {
+    height: 180px;
+}
+.container {
+    margin: 0 auto;
+    padding: 0rem;
+    margin-left: 10px;
+}
+} 
+@media (max-width: 650px){
+  .accordion-item {
+    width: 107%;
+}
+.lcontact1 h2 {
+    font-size: 1rem;
+    width: 100%;
+    display: none;
+}
+.lcontact2 {
+    height: 104%;
+    margin-left: 5%;
+    margin-top: -50px;
+    width: 90%;
+}
+.lcontact1 h1 {
+    margin-left: -70px;
+}
+.lastcontact {
+    height: 700px;
+}
+}
+@media (max-width: 570px){
+  .accordion-item {
+    width: 95%;
+}
+.image1 h2 {
+    font-size: 2rem;
+    margin-left: 0%;
+}
+.image3 h2 {
+    font-size: 2rem;
+    margin-left: 58%;
+}
+.image1 p {
+    font-size: 1rem;
+    width: 400px;
+}
+.image2 p {
+    font-size: 1rem;
+    width: 400px;
+}
+.image3 p {
+    font-size: 1rem;
+    width: 400px;
+}
+} 
+@media (max-width: 550px){
+
+  .image1 h2 {
+    font-size: 2rem;
+    margin-left: -29%;
+}
+.image1 img {
+    width: 350%;
+    margin-left: 40px;
+}
+.image1 p {
+    font-size: 1rem;
+    width: 350px;
+}
+.image3 p {
+    font-size: 1rem;
+    width: 350px;
+}
+.image3 p {
+    font-size: 1rem;
+    width: 350px;
+}
+.image2 img {
+    width: 350%;
+    margin-left: 110px;
+}
+.image2 h2 {
+    font-size: 2rem;
+    margin-left: 137%;
+}
+.image3 img {
+    width: 350%;
+    margin-left: 110px;
+}
+.image3 h2 {
+    font-size: 2rem;
+    margin-left: 17%;
+}
+.faqs h1 {
+    font-size: 40px;
+}
+.accordion button {
+    font-size: 1.25rem;
+}
+.lastcontact {
+    width: 104%;
+}
+.fotterpart {
+    width: 104%;
+}
+.fullpage{
+  width: 104%;
+}
+.fullpage h1 {
+    font-size: 2.5rem;
+}
+.fullpage p {
+    font-size: 1.5rem;
+}
+.fullpage h2 {
+    font-size: 1.5rem;
+}
+.fullpage {
+    height: 450px;
+}
+#contact {
+    width: 34%;
+    margin-left: 34%;
+    height: 50px;
+}
+} 
+ @media (max-width: 450px){
+  .fullpage {
+    width: 109%;
+}
+.fotterpart {
+    width: 109%;
+}
+.lastcontact {
+    width: 109%;
+}
+.accordion button {
+    font-size: 1.3rem;
+}
+.accordion-item {
+    width: 105%;
+}
+.lcontact2 {
+    width: 99%;
+}
+} 
+@media (max-width: 420px){
+  .fullpage {
+    width: 117%;
+}
+.fotterpart {
+    width: 117%;
+}
+.lastcontact {
+    width: 117%;
+}
+.faqs h1 {
+    font-size: 28px;
+    margin-bottom: 1.6rem;
+  }
+  .accordion-item {
+    width: 114%;
+}
+} 
+
+@media (max-width: 380px){
+  .image1 h2 {
+    font-size: 1.5rem;
+    margin-left: -29%;
+}
+.image2 h2 {
+    font-size: 1.5rem;
+    margin-left: 180%;
+}
+.image3 h2 {
+    font-size: 1.5rem;
+    margin-left: 50%;
+}
+.image1 p {
+    font-size: 0.91rem;
+    width: 300px;
+    margin-left: -20px;
+}
+.image2 p {
+    font-size: 1rem;
+    width: 300px;
+}
+.image3 p {
+    font-size: 1rem;
+    width: 300px;
+}
+}
+  </style>
+  </head>
+  <body>
+
+    <!-- navbar -->
+    <nav class="navbar">
+      <div class="logo_item">
+       
+        <i class="bx bx-menu" id="sidebarOpen"></i>
+        <img id="userimg" src="{% static 'img/index/user.jpg' %}" alt=""></i> <a href="{% url 'home' %}">RoyDevHub</a>
+      
+      </div>
+
+      <div class="navbar_content">
+       
+        <i class='bx bx-sun' id="darkLight"></i>
+        <i class="bi bi-grid"></i>
+      </div>
+    </nav>
+
+    <!-- sidebar -->
+    <nav class="sidebar">
+      <div class="menu_content">
+        <ul class="menu_items">
+          <div class="menu_title menu_dahsboard"></div>
+          <!-- duplicate or remove this li tag if you want to add or remove navlink with submenu -->
+          <!-- start -->
+          <li class="item">
+            <div href="#" class="nav_link submenu_item">
+              <span class="navlink_icon">
+                <i class="bx bx-home-alt"></i>
+              </span>
+              <span class="navlink">Home</span>
+              <i class="bx bx-chevron-right arrow-left"></i>
+            </div>
+
+            <ul class="menu_items submenu">
+              <a href="{% url 'allproject' %}" class="nav_link sublink">Projects</a>
+              <a href="{% url 'allblog' %}" class="nav_link sublink">Blog</a>
+            </ul>
+          </li>
+          <!-- end -->
+
+          <!-- duplicate this li tag if you want to add or remove  navlink with submenu -->
+          <!-- start -->
+          <li class="item">
+            <div href="#" class="nav_link submenu_item">
+              <span class="navlink_icon">
+                <i class="bx bx-grid-alt"></i>
+              </span>
+              <span class="navlink">Overview</span>
+              <i class="bx bx-chevron-right arrow-left"></i>
+            </div>
+
+            <ul class="menu_items submenu">
+              <a href="#" class="nav_link sublink">No Content Yet </a>
+              <a href="#" class="nav_link sublink">No Content Yet</a>
+            </ul>
+          </li>
+          <!-- end -->
+        </ul>
+
+        <ul class="menu_items">
+          <div class="menu_title ">Nav options</div>
+          <!-- duplicate these li tag if you want to add or remove navlink only -->
+          <!-- Start -->
+          
+          <li class="item">
+            <a href="{% url 'allproject' %}" class="nav_link">
+              <span class="navlink_icon">
+                <i class="bx bx-circle"></i>
+              </span>
+              <span class="navlink">Projects</span>
+            </a>
+          </li>
+        </a>
+          <!-- End -->
+
+          <li class="item">
+            <a href="{% url 'allblog' %}" class="nav_link">
+              <span class="navlink_icon">
+                <i class="bx bx-circle"></i>
+              </span>
+              <span class="navlink">Blog</span>
+            </a>
+          </li>
+          <li class="item">
+            <a href="{% url 'aboutme' %}" class="nav_link">
+              <span class="navlink_icon">
+                <i class="bx bx-circle"></i>
+              </span>
+              <span class="navlink">AboutUs</span>
+            </a>
+          </li>
+          <li class="item">
+            <a href="{% url 'contactme' %}" class="nav_link">
+              <span class="navlink_icon">
+                <i class="bx bx-circle"></i>
+              </span>
+              <span class="navlink">Contact Me </span>
+            </a>
+          </li>
+        </ul>
+        <ul class="menu_items">
+          <div class="menu_title ">Nav options</div>
+          <li class="item">
+            <a href="#" class="nav_link">
+              <span class="navlink_icon">
+                <i class="bx bx-loader-circle"></i>
+              </span>
+              <span class="navlink">Services</span>
+            </a>
+          </li>
+          <li class="item">
+            <a href="#" class="nav_link">
+              <span class="navlink_icon">
+                <i class="bx bx-cog"></i>
+              </span>
+              <span class="navlink">Setting</span>
+            </a>
+          </li>
+          <li class="item">
+            <a href="#" class="nav_link">
+              <span class="navlink_icon">
+                <i class="bx bx-layer"></i>
+              </span>
+              <span class="navlink">Features</span>
+            </a>
+          </li>
+        </ul>
+
+        <!-- Sidebar Open / Close -->
+        <div class="bottom_content">
+          <div class="bottom expand_sidebar">
+            <span> Open Nav</span>
+            <i class='bx bx-log-in' ></i>
+          </div>
+          <div class="bottom collapse_sidebar">
+            <span> Close Nav</span>
+            <i class='bx bx-log-out'></i>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+
+
+    <div class="fullpage">
+        .
+        <h1>Hi , I am Roy </h1>
+        <p>WEB DEVELOPER AND UI/UX DEVELOPER</p>
+        <h2>An passionate programmer with knowledge of Web Development</h2>
+        <h2>Python Programming , Backend Development</h2>
+        <a href="{% url 'contactme' %}"><button id="contact">Contact Me</button> </a>
+    </div>
+
+
+
+<!-- About Start -->
+<div class="container-xxl py-5">
+    <div class="container">
+        <div class="row g-5">
+            <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s" style="min-height: 400px;">
+                <div class="position-relative h-100">
+                    <img class="img-fluid position-absolute w-100 h-100" src="{% static 'img/index/8.jpg' %}" alt="" style="object-fit: cover;">
+                </div>
+            </div>
+            <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.3s">
+               
+                <h1 class="mb-4">Welcome to <span class="text-primary">royfreelance</span></h1>
+                <p class="mb-4">Passionate web developer skilled in front-end technologies (HTML, CSS, JavaScript, Bootstrap) and back-end expertise with Django and Python for dynamic websites, ensuring seamless and dynamic user experiences..</p>
+                <p class="mb-4">With a strong foundation in Django and Python, I specialize in creating dynamic websites. My expertise extends to crafting responsive and engaging user interfaces using front-end technologies like HTML, CSS, JavaScript, and Bootstrap. I am dedicated to delivering seamless and innovative web solutions.</p>
+                <div class="row gy-2 gx-4 mb-4">
+                    <div class="col-sm-6">
+                        <p class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>First Class Services</p>
+                    </div>
+                    <div class="col-sm-6">
+                        <p class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>Excelent Communication</p>
+                    </div>
+                    <div class="col-sm-6">
+                        <p class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>5 Star Satisfactioin</p>
+                    </div>
+                    <div class="col-sm-6">
+                        <p class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>New Website developed</p>
+                    </div>
+                    <div class="col-sm-6">
+                        <p class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>24/7 Service</p>
+                    </div>
+                    <div class="col-sm-6">
+                        <p class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>Website Redesign</p>
+                    </div>
+                </div>
+                <a class="btn btn-primary py-3 px-5 mt-2" href="">Read More</a>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- About End -->
+
+
+<!-- Our mission start -->
+<h2 id="buisnessdevelopmment">ABOUT DEVELOPMENT SOLUTIONS , SERVICES</h2>
+    <div class="home2">
+      <div class="home3">
+        <div class="image1">
+          <img src="{% static 'img/home2/2.jpg' %}" alt="">
+          <h2>Webapp_Development</h2>
+          <p> Crafting dynamic and responsive websites tailored to your unique needs. From sleek portfolios to robust e-commerce platforms, I turn your vision into a seamless online experience, ensuring functionality, aesthetics, and user engagement.</p>
+        </div>
+        <div class="image2">
+          <img src="{% static 'img/home2/3.jpg' %}" alt="">
+          <h2>Landing_pages</h2>
+          <p>Elevate your online presence with captivating landing pages. I will help you to build , high-converting pages that grab attention and drive action. From lead generation to product launches, let your landing page make a lasting impact.</p>
+        </div>
+        <div class="image3">
+          <img src="{% static 'img/index/7.jpg' %}" alt="">
+          <h2>WordPress_Development</h2>
+          <p>Harness the power of WordPress for a customizable, scalable, and user-friendly website. I bring expertise in developing WordPress solutions that align with your brand, offering a seamless blend of design and functionality for a online presence.</p>
+        </div>
+      </div>
+    </div>
+<!-- Our mission End -->
+
+
+    <!-- Service Start -->
+    <div class="container-xxl py-5">
+        <div class="container">
+            <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
+               
+                <h1 class="mb-5">Our Services</h1>
+            </div>
+            <div class="row g-4">
+                <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.1s">
+                    <div class="service-item rounded pt-3">
+                        <div class="p-4">
+                            <i class="fa fa-3x fa-globe text-primary mb-4"></i>
+                            <h5>Website Development</h5>
+                            <p>Craft stunning, responsive sites tailored to your needs, blending design and functionality seamlessly for success.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.3s">
+                    <div class="service-item rounded pt-3">
+                        <div class="p-4">
+                            <i class="fa fa-3x fa-hotel text-primary mb-4"></i>
+                            <h5>Landing Pages</h5>
+                            <p>  Captivate your audience with compelling landing pages that drive engagement, conversions, and business growth.  </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.5s">
+                    <div class="service-item rounded pt-3">
+                        <div class="p-4">
+                            <i class="fa fa-3x fa-user text-primary mb-4"></i>
+                            <h5>Webapp solutions</h5>
+                            <p> Ensure your site runs smoothly with expert management, updates, and optimizations for peak performance and security Redesign is also available</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.7s">
+                    <div class="service-item rounded pt-3">
+                        <div class="p-4">
+                            <i class="fa fa-3x fa-cog text-primary mb-4"></i>
+                            <h5>Website Management</h5>
+                            <p>Develop tailored, efficient web apps, providing scalable solutions that meet your business needs with precision.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Service End -->
+
+
+    <!-- Destination Start -->
+    <div class="container-xxl py-5 destination">
+        <div class="container">
+            <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
+                
+                <h1 class="mb-5">Popular Project Demoes</h1>
+            </div>
+            <div class="row g-3">
+                <div class="col-lg-7 col-md-6">
+                    <div class="row g-3">
+                        <div class="col-lg-12 col-md-12 wow zoomIn" data-wow-delay="0.1s">
+                            <a class="position-relative d-block overflow-hidden" href="">
+                                <img class="img-fluid" src="{% static 'img/index/6.jpg' %}" alt="">
+                                <div class="bg-white text-danger fw-bold position-absolute top-0 start-0 m-3 py-1 px-2">Demo</div>
+                                <div class="bg-white text-primary fw-bold position-absolute bottom-0 end-0 m-3 py-1 px-2">Video Calling Webapp</div>
+                            </a>
+                        </div>
+                        <div class="col-lg-6 col-md-12 wow zoomIn" data-wow-delay="0.3s">
+                            <a class="position-relative d-block overflow-hidden" href="">
+                                <img class="img-fluid" src="{% static 'img/index/d7.png' %}" alt="">
+                                <div class="bg-white text-danger fw-bold position-absolute top-0 start-0 m-3 py-1 px-2">Demo</div>
+                                <div class="bg-white text-primary fw-bold position-absolute bottom-0 end-0 m-3 py-1 px-2">E-commerce Shop</div>
+                            </a>
+                        </div>
+                        <div class="col-lg-6 col-md-12 wow zoomIn" data-wow-delay="0.5s">
+                            <a class="position-relative d-block overflow-hidden" href="">
+                                <img class="img-fluid" src="{% static 'img/index/d8.png' %}" alt="">
+                                <div class="bg-white text-danger fw-bold position-absolute top-0 start-0 m-3 py-1 px-2">Demo</div>
+                                <div class="bg-white text-primary fw-bold position-absolute bottom-0 end-0 m-3 py-1 px-2">Shopping Website</div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-5 col-md-6 wow zoomIn" data-wow-delay="0.7s" style="min-height: 350px;">
+                    <a class="position-relative d-block h-100 overflow-hidden" href="">
+                        <img class="img-fluid position-absolute w-100 h-100" src="{% static 'img/index/d9.png' %}" alt="" style="object-fit: cover;">
+                        <div class="bg-white text-danger fw-bold position-absolute top-0 start-0 m-3 py-1 px-2">Demo</div>
+                        <div class="bg-white text-primary fw-bold position-absolute bottom-0 end-0 m-3 py-1 px-2">Food Delivery Website</div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Destination End -->
+    <!-- Destination Start -->
+
+
+    <!-- Package Start -->
+<div class="container-xxl py-5">
+    <div class="container">
+        <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
+          
+            <h1 class="mb-5">Awesome Packages</h1>
+        </div>
+        <div class="row g-4 justify-content-center">
+            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                <div class="package-item">
+                    <div class="overflow-hidden">
+                        <img class="img-fluid" src="{% static 'img/index/s1.jpg' %}" alt="">
+                    </div>
+                    <div class="d-flex border-bottom">
+                        <small class="flex-fill text-center border-end py-2"><i class="fa fa-map-marker-alt text-primary me-2"></i>Webapp Development</small>
+                        <small class="flex-fill text-center border-end py-2"><i class="fa fa-calendar-alt text-primary me-2"></i>7 days</small>
+                        <small class="flex-fill text-center py-2"><i class="fa fa-user text-primary me-2"></i>As per requirement </small>
+                    </div>
+                    <div class="text-center p-4">
+                        <h3 class="mb-0">$80.00</h3>
+                        <div class="mb-3">
+                            <small class="fa fa-star text-primary"></small>
+                            <small class="fa fa-star text-primary"></small>
+                            <small class="fa fa-star text-primary"></small>
+                            <small class="fa fa-star text-primary"></small>
+                            <small class="fa fa-star text-primary"></small>
+                        </div>
+                        <p>Develop Beautiful and Dynamic Webapp for your buisness or other applications</p>
+                        <div class="d-flex justify-content-center mb-2">
+                            <a href="{% url 'contactme' %}" class="btn btn-sm btn-primary px-3 border-end" style="border-radius: 30px 0 0 30px;">Contact</a>
+                            <a href="{% url 'contactme' %}" class="btn btn-sm btn-primary px-3" style="border-radius: 0 30px 30px 0;"> Now</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
+                <div class="package-item">
+                    <div class="overflow-hidden">
+                        <img class="img-fluid" src="{% static 'img/index/2.png' %}" alt="">
+                    </div>
+                    <div class="d-flex border-bottom">
+                        <small class="flex-fill text-center border-end py-2"><i class="fa fa-map-marker-alt text-primary me-2"></i>Website Devlopment</small>
+                        <small class="flex-fill text-center border-end py-2"><i class="fa fa-calendar-alt text-primary me-2"></i>3 Days</small>
+                        <small class="flex-fill text-center py-2"><i class="fa fa-user text-primary me-2"></i>3 Pages</small>
+                    </div>
+                    <div class="text-center p-4">
+                        <h3 class="mb-0">$20.00</h3>
+                        <div class="mb-3">
+                            <small class="fa fa-star text-primary"></small>
+                            <small class="fa fa-star text-primary"></small>
+                            <small class="fa fa-star text-primary"></small>
+                            <small class="fa fa-star text-primary"></small>
+                            <small class="fa fa-star text-primary"></small>
+                        </div>
+                        <p>Develop Your first Full Fadged website with all the Features You want right now and make your services online right now  </p>
+                        <div class="d-flex justify-content-center mb-2">
+                          <a href="{% url 'contactme' %}" class="btn btn-sm btn-primary px-3 border-end" style="border-radius: 30px 0 0 30px;">Contact</a>
+                          <a href="{% url 'contactme' %}" class="btn btn-sm btn-primary px-3" style="border-radius: 0 30px 30px 0;"> Now</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
+                <div class="package-item">
+                    <div class="overflow-hidden">
+                        <img class="img-fluid" src="{% static 'img/index/s3.png' %}" alt="">
+                    </div>
+                    <div class="d-flex border-bottom">
+                        <small class="flex-fill text-center border-end py-2"><i class="fa fa-map-marker-alt text-primary me-2"></i>Landing Pages</small>
+                        <small class="flex-fill text-center border-end py-2"><i class="fa fa-calendar-alt text-primary me-2"></i>24 Hours</small>
+                        <small class="flex-fill text-center py-2"><i class="fa fa-user text-primary me-2"></i>2 Page</small>
+                    </div>
+                    <div class="text-center p-4">
+                        <h3 class="mb-0">$5.00</h3>
+                        <div class="mb-3">
+                            <small class="fa fa-star text-primary"></small>
+                            <small class="fa fa-star text-primary"></small>
+                            <small class="fa fa-star text-primary"></small>
+                            <small class="fa fa-star text-primary"></small>
+                            <small class="fa fa-star text-primary"></small>
+                        </div>
+                        <p>Develop Beautiful landing pages as per requiremet for your portfolio or buisness with me .</p>
+                        <div class="d-flex justify-content-center mb-2">
+                          <a href="{% url 'contactme' %}" class="btn btn-sm btn-primary px-3 border-end" style="border-radius: 30px 0 0 30px;">Contact</a>
+                          <a href="{% url 'contactme' %}" class="btn btn-sm btn-primary px-3" style="border-radius: 0 30px 30px 0;"> Now</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Package End -->
+    <!-- Package End -->
+
+
+    <div class="contactsec">
+      <div class="cons1">
+        .
+        <h4>Do you want to build your product with Us and grow with US ? </h4>
+        <h5>Build Your portfolio , your product with all the features with us and make yourelf available to catch up with the daily chaning industry</h5>
+        <div class="inputbox">
+          <input id="contactinput" type="text">
+          <button id="contactbutton">Contact Us</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Testimonial Start -->
+    <div class="container-xxl py-5 wow fadeInUp" data-wow-delay="0.1s">
+        <div class="container">
+            <div class="text-center">
+                <h1 class="mb-5">What Our Clients Say!!!</h1>
+            </div>
+            <div class="owl-carousel testimonial-carousel position-relative">
+              <div class="testimonial-item bg-white text-center border p-4">
+                <img class="bg-white rounded-circle shadow p-1 mx-auto mb-3" src="{% static 'img/home2/r1.jpg' %}" style="width: 80px; height: 80px;">
+                <h5 class="mb-0">Alex Turner</h5>
+                <p>New York, USA</p>
+                <p class="mt-2 mb-0">Impeccable small web app solution! Transformed our concept into a functional, user-friendly application. Timely delivery, attention to detail—exceeded our tech expectations. Highly commendable expertise!</p>
+            </div>
+                <div class="testimonial-item bg-white text-center border p-4">
+                    <img class="bg-white rounded-circle shadow p-1 mx-auto mb-3" src="{% static 'img/home2/r4.jpg' %}" style="width: 80px; height: 80px;">
+                    <h5 class="mb-0">Krishan Aggarwal</h5>
+                    <p>Pune , India</p>
+                    <p class="mb-0">Exceptional service! Their team seamlessly translated our vision into a dynamic website, exceeding expectations. Professional, efficient, and highly recommended</p>
+                </div>
+                <div class="testimonial-item bg-white text-center border p-4">
+                    <img class="bg-white rounded-circle shadow p-1 mx-auto mb-3" src="{% static 'img/home2/r2.jpg' %}" style="width: 80px; height: 80px;">
+                    <h5 class="mb-0">Arvind Roy</h5>
+                    <p>Malasiya</p>
+                    <p class="mt-2 mb-0">Reliable website management! Proactive in updates, security, and performance optimization. Our online presence has never been smoother. A trusted partner for success!</p>
+                </div>
+                <div class="testimonial-item bg-white text-center border p-4">
+                    <img class="bg-white rounded-circle shadow p-1 mx-auto mb-3" src="{% static 'img/home2/r6.jpg' %}" style="width: 80px; height: 80px;">
+                    <h5 class="mb-0">Kyle Anderson</h5>
+                    <p>New York, USA</p>
+                    <p class="mt-2 mb-0">Impeccable small web app solution! Transformed our concept into a functional, user-friendly application. Timely delivery, attention to detail—exceeded our tech expectations. Highly commendable expertise!</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Testimonial End -->
+        
+
+    <!-- adding faq and contact -->
+    <div class="faqs">
+      .
+      <h1>Frequently Asked Questions</h1>
+      <div class="container">
+        <div class="accordion">
+          <div class="accordion-item">
+            <button id="accordion-button-1" aria-expanded="false">
+              <span class="accordion-title">What is business development ?</span>
+              <span class="icon" aria-hidden="true"></span>
+            </button>
+            <div class="accordion-content">
+              <p>
+                Business development (BD) is the process that is used to identify, nurture and acquire new clients and business opportunities to drive growth and profitability.
+              </p>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <button id="accordion-button-2" aria-expanded="false">
+              <span class="accordion-title">Why is business development important?</span>
+              <span class="icon" aria-hidden="true"></span>
+            </button>
+            <div class="accordion-content">
+              <p>
+                BD is important for businesses because it helps them to identify new opportunities for growth, increase revenue, and build strong, long-term relationships with clients.
+              </p>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <button id="accordion-button-3" aria-expanded="false">
+              <span class="accordion-title">What services does CONSULTINGS offer?</span>
+              <span class="icon" aria-hidden="true"></span>
+            </button>
+            <div class="accordion-content">
+              <p>
+                CONSULTINGS offers a range of business development services including marketing strategy development, lead generation, client relationship management, and business planning.
+              </p>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <button id="accordion-button-4" aria-expanded="false">
+              <span class="accordion-title">How much does the Earth weigh?</span>
+              <span class="icon" aria-hidden="true"></span>
+            </button>
+            <div class="accordion-content">
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                incididunt ut labore et dolore magna aliqua. Elementum sagittis vitae et leo duis ut.
+                Ut tortor pretium viverra suspendisse potenti.
+              </p>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <button id="accordion-button-5" aria-expanded="false">
+              <span class="accordion-title">How do airplanes stay up?</span>
+              <span class="icon" aria-hidden="true"></span>
+            </button>
+            <div class="accordion-content">
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                incididunt ut labore et dolore magna aliqua. Elementum sagittis vitae et leo duis ut.
+                Ut tortor pretium viverra suspendisse potenti.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+<div class="lastcontact">
+  <div class="lcontact1">
+    <h1>Let’s Get Started</h1>
+    <h2>Explore our comprehensive Web App solutions, meticulously crafted to align with your unique vision. We specialize in developing products that not only showcase your services but also effortlessly reach your target audience. Let us transform your ideas into a powerful digital presence, enhancing your business impact and accessibility.</h2>
+  </div>
+  
+  <div class="lcontact2">
+    .
+    <form action="{% url 'contactme' %}" method="POST">
+      {% csrf_token %}
+    <h1>Let's Get Connected</h1>
+    <input id="inname" type="text" placeholder="Enter Your Name " name="name">
+    <input id="inname" type="text" placeholder="Enter Your Email " name="email">
+    <input id="inname" type="text" placeholder="Enter Your Phone Number " name="number">
+    <textarea name="" id="textname" id="" cols="30" rows="10" placeholder="Write Your message" name="reason"></textarea>
+    <a href="#" type="submit" class="submit-button"><button type="submit" id="subbuton">Submit</button></a>
+  </form>
+  </div>
+ 
+</div>
+
+
+
+
+
+
+
+    <!-- Footer Start -->
+<div class="fotterpart">
+  .
+     <h1>royfreelance.com, All Right Reserved. Designed and developed By Roy</h1>
+     <h1>send an email to roypapan75@gmail.com</h1>
+</div>
+  <!-- Footer End -->
+
+
+
+<!-- JavaScript Libraries -->
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="{% static 'lib/wow/wow.min.js' %}"></script>
+<script src="{% static 'lib/easing/easing.min.js' %}"></script>
+<script src="{% static 'lib/waypoints/waypoints.min.js' %}"></script>
+<script src="{% static 'lib/owlcarousel/owl.carousel.min.js' %}"></script>
+<script src="{% static 'lib/tempusdominus/js/moment.min.js' %}"></script>
+<script src="{% static 'lib/tempusdominus/js/moment-timezone.min.js' %}"></script>
+<script src="{% static 'lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js' %}"></script>
+<script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script> <!--/ Typescript / -->
+
+<!-- Template Javascript -->
+<script src="{% static 'js/main.js' %}"></script>
+
+    <!-- JavaScript -->
+    <script>
+
+    // faq 
+    const items = document.querySelectorAll('.accordion button');
+
+function toggleAccordion() {
+  const itemToggle = this.getAttribute('aria-expanded');
+
+  for (i = 0; i < items.length; i++) {
+    items[i].setAttribute('aria-expanded', 'false');
+  }
+
+  if (itemToggle == 'false') {
+    this.setAttribute('aria-expanded', 'true');
+  }
+}
+
+items.forEach((item) => item.addEventListener('click', toggleAccordion));
+
+
+const body = document.querySelector("body");
+const darkLight = document.querySelector("#darkLight");
+const sidebar = document.querySelector(".sidebar");
+const submenuItems = document.querySelectorAll(".submenu_item");
+const sidebarOpen = document.querySelector("#sidebarOpen");
+const sidebarClose = document.querySelector(".collapse_sidebar");
+const sidebarExpand = document.querySelector(".expand_sidebar");
+sidebarOpen.addEventListener("click", () => sidebar.classList.toggle("close"));
+
+sidebarClose.addEventListener("click", () => {
+  sidebar.classList.add("close", "hoverable");
+});
+sidebarExpand.addEventListener("click", () => {
+  sidebar.classList.remove("close", "hoverable");
+});
+
+sidebar.addEventListener("mouseenter", () => {
+  if (sidebar.classList.contains("hoverable")) {
+    sidebar.classList.remove("close");
+  }
+});
+sidebar.addEventListener("mouseleave", () => {
+  if (sidebar.classList.contains("hoverable")) {
+    sidebar.classList.add("close");
+  }
+});
+
+darkLight.addEventListener("click", () => {
+  body.classList.toggle("dark");
+  if (body.classList.contains("dark")) {
+    document.setI
+    darkLight.classList.replace("bx-sun", "bx-moon");
+  } else {
+    darkLight.classList.replace("bx-moon", "bx-sun");
+  }
+});
+
+submenuItems.forEach((item, index) => {
+  item.addEventListener("click", () => {
+    item.classList.toggle("show_submenu");
+    submenuItems.forEach((item2, index2) => {
+      if (index !== index2) {
+        item2.classList.remove("show_submenu");
+      }
+    });
+  });
+});
+
+if (window.innerWidth < 768) {
+  sidebar.classList.add("close");
+} else {
+  sidebar.classList.remove("close");
+}
+
+
+
+items.forEach((item) => item.addEventListener('click', toggleAccordion));
+
+//adding typescript 
+var typed = new Typed('#element', {
+      strings: ['MARKETING!', 'AFLIET MARKETING !', 'DIGITL MARKETINNG!', 'CONSULTENT GUIDANCESS !', 'Video Editor! ', 'Django Developer', 'Web Developer !', 'Python Developer !', 'Backend Developer !', 'Video Editor! ', 'Django Developer'],
+      typeSpeed: 80,
+    });
+
+    </script>
+    <script src="script.js"></script>
+  </body>
+</html>
+

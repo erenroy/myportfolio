@@ -1,0 +1,1199 @@
+<!DOCTYPE html>
+<!-- Coding by CodingNepal || www.codingnepalweb.com -->
+{% load static %}
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+   
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600&family=Nunito:wght@600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Icon Font Stylesheet -->
+    <link href="{% static 'css/all.min.css' %}" rel="stylesheet">
+    <link href="{% static 'font/bootstrap-icons.css' %}" rel="stylesheet">
+    
+    <!-- Libraries Stylesheet -->
+    <link href="{% static 'lib/animate/animate.min.css' %}" rel="stylesheet">
+    <link href="{% static 'lib/owlcarousel/assets/owl.carousel.min.css' %}" rel="stylesheet">
+    <link href="{% static 'lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css' %}" rel="stylesheet" />
+    
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+    <style>
+           
+        /* Import Google font - Poppins */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+:root {
+  --white-color: #fff;
+  --blue-color: #4070f4;
+  --grey-color: #707070;
+  --grey-color-light: #aaa;
+}
+body {
+  background-color: #e7f2fd;
+  transition: all 0.5s ease;
+}
+body.dark {
+  background-color: #333;
+}
+body.dark {
+  --white-color: #333;
+  --blue-color: #fff;
+  --grey-color: #f2f2f2;
+  --grey-color-light: #aaa;
+}
+
+/* navbar */
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  left: 0;
+  background-color: var(--white-color);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px 30px;
+  z-index: 1000;
+  box-shadow: 0 0 2px var(--grey-color-light);
+}
+.logo_item {
+  display: flex;
+  align-items: center;
+  column-gap: 10px;
+  font-size: 22px;
+  font-weight: 500;
+  color: var(--blue-color);
+}
+.navbar img {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+}
+.search_bar {
+  height: 47px;
+  max-width: 430px;
+  width: 100%;
+}
+.search_bar input {
+  height: 100%;
+  width: 100%;
+  border-radius: 25px;
+  font-size: 18px;
+  outline: none;
+  background-color: var(--white-color);
+  color: var(--grey-color);
+  border: 1px solid var(--grey-color-light);
+  padding: 0 20px;
+}
+.navbar_content {
+  display: flex;
+  align-items: center;
+  column-gap: 25px;
+}
+.navbar_content i {
+  cursor: pointer;
+  font-size: 20px;
+  color: var(--grey-color);
+}
+
+/* sidebar */
+.sidebar {
+  background-color: var(--white-color);
+  width: 260px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  padding: 80px 20px;
+  z-index: 100;
+  overflow-y: scroll;
+  box-shadow: 0 0 1px var(--grey-color-light);
+  transition: all 0.5s ease;
+}
+.sidebar.close {
+  padding: 60px 0;
+  width: 80px;
+}
+.sidebar::-webkit-scrollbar {
+  display: none;
+}
+.menu_content {
+  position: relative;
+}
+.menu_title {
+  margin: 15px 0;
+  padding: 0 20px;
+  font-size: 18px;
+}
+.sidebar.close .menu_title {
+  padding: 6px 30px;
+}
+.menu_title::before {
+  color: var(--grey-color);
+  white-space: nowrap;
+}
+.menu_dahsboard::before {
+  content: "Dashboard";
+}
+.menu_editor::before {
+  content: "Editor";
+}
+.menu_setting::before {
+  content: "Setting";
+}
+.sidebar.close .menu_title::before {
+  content: "";
+  position: absolute;
+  height: 2px;
+  width: 18px;
+  border-radius: 12px;
+  background: var(--grey-color-light);
+}
+.menu_items {
+  padding: 0;
+  list-style: none;
+}
+.navlink_icon {
+  position: relative;
+  font-size: 22px;
+  min-width: 50px;
+  line-height: 40px;
+  display: inline-block;
+  text-align: center;
+  border-radius: 6px;
+}
+.navlink_icon::before {
+  content: "";
+  position: absolute;
+  height: 100%;
+  width: calc(100% + 100px);
+  left: -20px;
+}
+.navlink_icon:hover {
+  background: var(--blue-color);
+}
+.sidebar .nav_link {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 4px 15px;
+  border-radius: 8px;
+  text-decoration: none;
+  color: var(--grey-color);
+  white-space: nowrap;
+}
+.sidebar.close .navlink {
+  display: none;
+}
+.nav_link:hover {
+  color: var(--white-color);
+  background: var(--blue-color);
+}
+.sidebar.close .nav_link:hover {
+  background: var(--white-color);
+}
+.submenu_item {
+  cursor: pointer;
+}
+.submenu {
+  display: none;
+}
+.submenu_item .arrow-left {
+  position: absolute;
+  right: 10px;
+  display: inline-block;
+  margin-right: auto;
+}
+.sidebar.close .submenu {
+  display: none;
+}
+.show_submenu ~ .submenu {
+  display: block;
+}
+.show_submenu .arrow-left {
+  transform: rotate(90deg);
+}
+.submenu .sublink {
+  padding: 15px 15px 15px 52px;
+}
+.bottom_content {
+  position: fixed;
+  bottom: 60px;
+  left: 0;
+  width: 260px;
+  cursor: pointer;
+  transition: all 0.5s ease;
+}
+.bottom {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  left: 0;
+  justify-content: space-around;
+  padding: 18px 0;
+  text-align: center;
+  width: 100%;
+  color: var(--grey-color);
+  border-top: 1px solid var(--grey-color-light);
+  background-color: var(--white-color);
+}
+.bottom i {
+  font-size: 20px;
+}
+.bottom span {
+  font-size: 18px;
+}
+.sidebar.close .bottom_content {
+  width: 50px;
+  left: 15px;
+}
+.sidebar.close .bottom span {
+  display: none;
+}
+.sidebar.hoverable .collapse_sidebar {
+  display: none;
+}
+#sidebarOpen {
+  display: none;
+}
+@media screen and (max-width: 768px) {
+  #sidebarOpen {
+    font-size: 25px;
+    display: block;
+    margin-right: 10px;
+    cursor: pointer;
+    color: var(--grey-color);
+  }
+  .sidebar.close {
+    left: -100%;
+  }
+  .search_bar {
+    display: none;
+  }
+  .sidebar.close .bottom_content {
+    left: -100%;
+  }
+}
+    
+/* Adding my css */
+.fullpage{
+    height: 800px;
+    width: 100%;
+    background-image: url("{% static '1.jpeg'  %}");
+}
+.fullpage h1{
+    text-align: center;
+    color: white;
+    font-size: 4.5rem;
+    margin-top: 8%;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+.fullpage p{
+    text-align: center;
+    color: white;
+    font-size: 2.5rem;
+    margin-top: 1%;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+.fullpage h2{
+    text-align: center;
+    color: white;
+    font-size: 2.5rem;
+    margin-top: 1%;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+#contact{
+    height: 7%;
+    width: 8%;
+    background-color: aqua;
+    margin-left: 46%;
+    margin-top: 5%;
+    font-size: 1.2rem;
+}
+
+
+/* Adding the css for our mission */
+
+.typingelement {
+    color: rgb(252, 255, 54);
+  }
+
+  #buisnessdevelopmment {
+    color: rgb(224, 173, 20);
+    text-align: center;
+    font-size: 2.9rem;
+    font-weight: 600;
+    font-family: 'Righteous', serif, system-ui;
+    margin-top: 2%;
+    margin-bottom: 3%;
+  }
+
+  .home3 {
+    display: flex;
+  }
+
+  .image1 {
+    margin-left: 20%;
+    width: 14%;
+  }
+
+  .image1 img {
+    width: 125%;
+    border-radius: 500px;
+    border: 1px solid rgb(255, 255, 255);
+  }
+
+  .image1 h2 {
+    text-align: center;
+    margin-left: 10%;
+    font-size: 1.9rem;
+  }
+
+  .image1 p {
+    text-align: center;
+    margin-left: 10%;
+    font-size: 1.4rem;
+    margin-left: -10%;
+    margin-right: -20%;
+    color: #6d6b6b;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+  }
+  .image2 {
+    margin-left: 8%;
+    width: 14%;
+  }
+
+  .image2 img {
+    width: 125%;
+    border-radius: 500px;
+    border: 1px solid rgb(255, 255, 255);
+  }
+
+  .image2 h2 {
+    text-align: center;
+    margin-left: 10%;
+    font-size: 1.9rem;
+  }
+
+  .image2 p {
+    text-align: center;
+    margin-left: 10%;
+    font-size: 1.4rem;
+    margin-left: -10%;
+    margin-right: -20%;
+    color: #6d6b6b;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+  }
+
+  .image3 {
+    margin-left: 8%;
+    width: 14%;
+  }
+
+  .image3 img {
+    width: 125%;
+    border-radius: 500px;
+    border: 1px solid rgb(255, 255, 255);
+  }
+
+  .image3 h2 {
+    text-align: center;
+    margin-left: 10%;
+    font-size: 1.9rem;
+  }
+
+  .image3 p {
+    text-align: center;
+    margin-left: 10%;
+    font-size: 1.4rem;
+    margin-left: -10%;
+    margin-right: -20%;
+    color: #6d6b6b;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+  }
+
+/* Adding signup css */
+.cons1{
+  height: 480px;
+  width: 80%;
+  background: #f8fafb;
+  padding: 150px 0;
+  margin-left: 10%;
+}
+
+.cons1 h4{
+  font-size: 24px;
+    font-weight: 500;
+    text-transform: uppercase;
+    text-align: center;
+}
+.cons1 h5{
+  font-size: 16px;
+  margin-top: 1%;
+    font-weight: 400;
+    text-transform: uppercase;
+    text-align: center;
+}
+.inputbox{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 3%;
+}
+#contactbutton{
+  height: 55px;
+  width: 8.6%;
+  background-color: rgb(255, 108, 108);
+  color: white;
+  border: 1px solid rgb(255, 108, 108);
+}
+#contactinput{
+  height: 55px;
+  width: 25%;
+  background-color: rgb(255, 255, 255);
+  color: white;
+  border: 1px solid rgb(218, 215, 215);
+  box-shadow: 0px 5px 15px rgba(10,10,10,0.5);
+}
+
+
+    /* Starting of faq */
+    .faqs h1{
+      text-align: center;
+    position: relative;
+    font-weight: 700;
+    font-size: 55px;
+    line-height: normal;
+    color: rgba(32, 57, 110, 1);
+    margin-bottom: 2.6rem;
+    margin-top: 1%;
+}
+
+.container {
+  margin: 0 auto;
+  padding: 4rem;
+  width: 100%;
+}
+.accordion .accordion-item {
+  border-bottom: 1px solid #e5e5e5;
+  border-radius: 14px;
+}
+.accordion .accordion-item button[aria-expanded='true'] {
+  border-bottom: 1px solid #000000;
+}
+.accordion button {
+  position: relative;
+  display: block;
+  text-align: left;
+  width: 100%;
+  padding: 1em 0;
+  color: #7288a2;
+  font-size: 1.55rem;
+  font-weight: 400;
+  border: none;
+  background: none;
+  outline: none;
+}
+.accordion button:hover,
+.accordion button:focus {
+  cursor: pointer;
+  color: #000000;
+}
+.accordion button:hover::after,
+.accordion button:focus::after {
+  cursor: pointer;
+  color: #03b5d2;
+  border: 1px solid #03b5d2;
+}
+.accordion button .accordion-title {
+  margin-left: 2%;
+  color: rgba(24, 76, 161, 1);
+  padding: 1em 1.5em 1em 0;
+}
+.accordion button .icon {
+  display: inline-block;
+  position: absolute;
+  top: 32px;
+    right: 36px;
+  width: 22px;
+  height: 22px;
+  border: 1px solid black;
+  border-radius: 22px;
+}
+.accordion button .icon::before {
+  display: block;
+  position: absolute;
+  content: '';
+  top: 9px;
+  left: 5px;
+  width: 10px;
+  height: 2px;
+  background: currentColor;
+}
+.accordion button .icon::after {
+  display: block;
+  position: absolute;
+  content: '';
+  top: 5px;
+  left: 9px;
+  width: 2px;
+  height: 10px;
+  background: currentColor;
+}
+.accordion button[aria-expanded='true'] {
+  color: #03b5d2;
+}
+.accordion button[aria-expanded='true'] .icon::after {
+  width: 0;
+}
+.accordion button[aria-expanded='true'] + .accordion-content {
+  opacity: 1;
+  max-height: 9em;
+  transition: all 200ms linear;
+  will-change: opacity, max-height;
+}
+.accordion .accordion-content {
+  opacity: 0;
+  max-height: 0;
+  overflow: hidden;
+  transition: opacity 200ms linear, max-height 200ms linear;
+  will-change: opacity, max-height;
+}
+.accordion .accordion-content p {
+  font-size: 1.4rem;
+  font-weight: 300;
+  margin: 2em 0;
+  margin-left: 2%;
+}
+.accordion-item{
+  margin-bottom: 20px;
+}
+
+/* Building the contact sectoion */
+.lastcontact{
+  display: flex;
+  background: rgba(41, 44, 48, 1);;
+}
+.lcontact1{
+  margin-top: 12%;
+  margin-left: 15%;
+  margin-bottom: 13%;
+}
+.lcontact1 h1{
+  color: #777676;
+  font-weight: 600;
+  font-size: 4rem;
+  margin-bottom: 2%;
+}
+.lcontact1 h2{
+  color: #ffffff;
+  font-weight: 400;
+  width: 40%;
+  margin-top: 0.5%;
+  font-size: 1.8rem;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  margin-right: 0;
+}
+.lcontact2{
+  margin-top: 4%;
+  height: 700px;
+  margin-left: 50%;
+  width: 35%;
+  background-color: white;
+  position: absolute;
+  border-radius: 50px;
+}
+.lcontact2 h1{
+  color: rgba(32, 57, 110, 1);
+  margin-left: 8%;
+  margin-top: 2%;
+  font-size: 3rem;
+  font-weight: 600;
+}
+#inname{
+  margin-left: 8%;
+  margin-top: 2%;
+  border: 1px solid rgb(45, 87, 165);
+  height: 60px;
+  width:70%;
+  font-size: 1.12rem;
+  border-radius: 10px;
+  color: black;
+}
+#textname{
+  margin-left: 8%;
+  margin-top: 2%;
+  border: 1px solid rgb(45, 87, 165);
+  height: 200px;
+  width:70%;
+  font-size: 1.12rem;
+  border-radius: 10px;
+  color: black;
+}
+
+.submit-button {
+      display: inline-block;
+      padding: 15px 60px;
+      font-size: 30px;
+      text-align: center;
+      text-decoration: none;
+      color: #fff;
+      background: linear-gradient(to left, #3498db, #2ecc71);
+      border-radius: 5px;
+      transition: background 0.3s ease;
+      border-radius: 45px;
+      margin-left: 7%;
+      margin-top: 1%;
+    }
+
+    .recommendations{
+
+      text-align: center;
+      margin-top: 1%;
+      font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    }
+    .containers{
+    margin: 0 auto;
+    width: 70%;
+}
+
+/* Our services section */
+.services h1{
+  color: rgba(32,57,110,1);
+    font-size: 3.3rem;
+    font-weight: 600;
+    text-align: center;
+
+}
+
+/* Making the page responsive */
+@media (max-width: 1760px){
+  .clients h2 {
+    margin-left: 12%;
+    font-size: 6rem;
+    font-weight: 600;
+    font-family: 'Montserrat', sans-serif;
+}
+}
+@media (max-width: 1680px){
+  .clients2 h3 {
+    color: white;
+    margin-left: 21%;
+    font-size: 2rem;
+}
+.clients2 h2 {
+    color: white;
+    margin-left: 20.8%;
+    font-size: 2rem;
+}
+}
+
+@media (max-width: 1560px){
+  .clients h2 {
+    font-size: 4rem;
+}
+.clients h1 {
+    font-size: 4rem;
+}
+.clients2 h3 {
+    color: white;
+    margin-left: 16%;
+    font-size: 1.2rem;
+}
+.clients2 h4 {
+    color: white;
+    margin-left: 9%;
+    font-size: 1.2rem;
+}
+.clients2 h2 {
+    color: white;
+    margin-left: 14.8%;
+    font-size: 1.2rem;
+}
+.clients2 h1 {
+    color: white;
+    font-size: 1.2rem;
+    margin-left: 10%;
+}
+
+} 
+/* making the full page responsivve */
+
+@media (max-width: 1881px){
+  #contactbutton1 {
+    height: 11vh;
+    width: 39vh;
+}
+.home6text {
+    height: 615px;
+}
+}
+ @media (max-width: 1710px){
+  .home6text {
+    height: 578px;
+}
+} 
+@media (max-width: 1620px){
+  .lcontact2 {
+    height: 110%;
+    margin-left: 56%;
+
+}
+.home6text {
+    height: 546px;
+}
+} 
+@media (max-width: 1470px){
+  .home6text {
+    height: 528px;
+}
+.custom-button {
+    margin-left: 26%;
+}
+} 
+ @media (max-width: 1400px){
+  .allservicefix {
+    display: block;
+    margin-left: 7%;
+}
+.service1 img {
+    width: 150%;
+}
+.allservices {
+    display: flex;
+    margin-left: 18%;
+    width: 59%;
+}
+.allservices2 {
+    display: flex;
+    display: none;
+}
+.home6text {
+    height: 513px;
+}
+.faqs h1 {
+    margin-bottom: -0.4rem;
+}
+} 
+ @media (max-width: 1240px){
+  .home1 h1 {
+    font-size: 2.6rem;
+}
+.image1 p {
+    font-size: 0.8rem;
+}
+.image2 p {
+    font-size: 0.8rem;
+}
+.image3 p {
+    font-size: 0.8rem;
+}
+.home6text h2 {
+    font-size: 30px;
+}
+.home6text h3 {
+    font-size: 30px;
+}
+.custom-button {
+    margin-left: 17%;
+    margin-top: -8%;
+}
+.home6text {
+    height: 474px;
+}
+.service1 h3 {
+    font-size: 1rem;
+}
+} 
+ @media (max-width: 1130px){
+  .home6img img {
+    width: 100%;
+}
+.home6text h2 {
+    margin-top: 0%;
+}
+.custom-button {
+    padding: 7px 40px;
+    margin-left: 28%;
+}
+.home6text {
+    height: 346px;
+}
+} 
+@media (max-width: 1250px){
+  .lcontact2 {
+    height: 110%;
+    margin-left: 60%;
+}
+.lcontact2 h1 {
+    color: rgba(32, 57, 110, 1);
+    margin-left: 8%;
+    margin-top: 2%;
+    font-size: 2rem;
+    font-weight: 600;
+}
+.home6text {
+    height: 477px;
+}
+.custom-button {
+    margin-left: 22%;
+}
+}
+
+@media (max-width: 1080px){
+  #buisnessdevelopmment {
+    font-size: 2rem;
+}
+.home6text {
+    height: 338px;
+}
+.lcontact1 h1 {
+    font-size: 3rem;
+}
+.lcontact1 h2 {
+    font-size: 1rem;
+    width: 100%;
+}
+.lastcontact {
+    height: 650px;
+}
+.row-cols-md-3>* {
+    flex: 0 0 auto;
+    width: 65.333333%;
+}
+.containers {
+    margin: 1px auto;
+    width: 70%;
+    margin-left: 32%;
+}
+} 
+ @media (max-width: 1000px){
+  .lastcontact {
+    display: block;
+    margin-top: 0;
+}
+.lcontact1 {
+    margin-top: 0%;
+}
+.lcontact1 h1 {
+    text-align: center;
+}
+.lcontact1 h2 {
+    font-size: 1.4rem;
+}
+.lcontact2 {
+    height: 110%;
+    margin-left: 25%;
+    margin-top: -10%;
+    width: 60%;
+}
+.lastcontact {
+    height: 1000px;
+}
+} 
+ @media (max-width: 960px){
+  .home6text {
+    height: 318px;
+}
+} 
+@media (max-width: 900px){
+  .clients h2 {
+    font-size: 3rem;
+}
+.clients h1 {
+    font-size: 3rem;
+}
+.home6text h2 {
+    font-size: 17px;
+}
+.home6text h3 {
+    font-size: 16px;
+}
+.home6text {
+    height: 300px;
+}
+.service1 img {
+    width: 161%;
+}
+}
+@media (max-width: 760px){
+  .clients h2 {
+    font-size: 2rem;
+}
+.clients2 h3 {
+    color: white;
+    margin-left: 13%;
+    font-size: 0.8rem;
+}
+.custom-button {
+    padding: 14px 30px;
+    margin-left: 28%;
+    font-size: 15px;
+  }
+  .home6text {
+    height: 269px;
+}
+.service1 h3 {
+    font-size: 0.7rem;
+}
+.accordion-item{
+  width: 120%;
+}
+} 
+
+/* adding footer */
+
+.fotterpart{
+  height: 100px;
+  background-color: black;
+}
+.fotterpart h1{
+  font-size: 1.1rem;
+  font-weight: 100;
+  color: white;
+  text-align: center;
+}
+    </style>
+  </head>
+  <body>
+    <!-- navbar -->
+    <nav class="navbar">
+      <div class="logo_item">
+       
+        <i class="bx bx-menu" id="sidebarOpen"></i>
+        <img id="userimg" src="{% static 'img/index/user.jpg' %}" alt=""></i> <a href="{% url 'home' %}">RoyDevHub</a>
+      
+      </div>
+      <div class="navbar_content">
+       
+        <i class='bx bx-sun' id="darkLight"></i>
+        <i class="bi bi-grid"></i>
+      </div>
+    </nav>
+
+    <!-- sidebar -->
+    <nav class="sidebar">
+      <div class="menu_content">
+        <ul class="menu_items">
+          <div class="menu_title menu_dahsboard"></div>
+          <!-- duplicate or remove this li tag if you want to add or remove navlink with submenu -->
+          <!-- start -->
+          <li class="item">
+            <div href="#" class="nav_link submenu_item">
+              <span class="navlink_icon">
+                <i class="bx bx-home-alt"></i>
+              </span>
+              <span class="navlink">Home</span>
+              <i class="bx bx-chevron-right arrow-left"></i>
+            </div>
+
+            <ul class="menu_items submenu">
+              <a href="{% url 'allproject' %}" class="nav_link sublink">Projects</a>
+              <a href="{% url 'allblog' %}" class="nav_link sublink">Blog</a>
+            </ul>
+          </li>
+          <!-- end -->
+
+          <!-- duplicate this li tag if you want to add or remove  navlink with submenu -->
+          <!-- start -->
+          <li class="item">
+            <div href="#" class="nav_link submenu_item">
+              <span class="navlink_icon">
+                <i class="bx bx-grid-alt"></i>
+              </span>
+              <span class="navlink">Overview</span>
+              <i class="bx bx-chevron-right arrow-left"></i>
+            </div>
+
+            <ul class="menu_items submenu">
+              <a href="#" class="nav_link sublink">No Content Yet </a>
+              <a href="#" class="nav_link sublink">No Content Yet</a>
+            </ul>
+          </li>
+          <!-- end -->
+        </ul>
+
+        <ul class="menu_items">
+          <div class="menu_title ">Nav options</div>
+          <!-- duplicate these li tag if you want to add or remove navlink only -->
+          <!-- Start -->
+          
+          <li class="item">
+            <a href="{% url 'allproject' %}" class="nav_link">
+              <span class="navlink_icon">
+                <i class="bx bx-circle"></i>
+              </span>
+              <span class="navlink">Projects</span>
+            </a>
+          </li>
+        </a>
+          <!-- End -->
+
+          <li class="item">
+            <a href="{% url 'allblog' %}" class="nav_link">
+              <span class="navlink_icon">
+                <i class="bx bx-circle"></i>
+              </span>
+              <span class="navlink">Blog</span>
+            </a>
+          </li>
+          <li class="item">
+            <a href="{% url 'aboutme' %}" class="nav_link">
+              <span class="navlink_icon">
+                <i class="bx bx-circle"></i>
+              </span>
+              <span class="navlink">AboutUs</span>
+            </a>
+          </li>
+          <li class="item">
+            <a href="{% url 'contactme' %}" class="nav_link">
+              <span class="navlink_icon">
+                <i class="bx bx-circle"></i>
+              </span>
+              <span class="navlink">Contact Me </span>
+            </a>
+          </li>
+        </ul>
+        <ul class="menu_items">
+          <div class="menu_title ">Nav options</div>
+          <li class="item">
+            <a href="#" class="nav_link">
+              <span class="navlink_icon">
+                <i class="bx bx-loader-circle"></i>
+              </span>
+              <span class="navlink">Services</span>
+            </a>
+          </li>
+          <li class="item">
+            <a href="#" class="nav_link">
+              <span class="navlink_icon">
+                <i class="bx bx-cog"></i>
+              </span>
+              <span class="navlink">Setting</span>
+            </a>
+          </li>
+          <li class="item">
+            <a href="#" class="nav_link">
+              <span class="navlink_icon">
+                <i class="bx bx-layer"></i>
+              </span>
+              <span class="navlink">Features</span>
+            </a>
+          </li>
+        </ul>
+
+        <!-- Sidebar Open / Close -->
+        <div class="bottom_content">
+          <div class="bottom expand_sidebar">
+            <span> Open Nav</span>
+            <i class='bx bx-log-in' ></i>
+          </div>
+          <div class="bottom collapse_sidebar">
+            <span> Close Nav</span>
+            <i class='bx bx-log-out'></i>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+
+    {% block content %}{% endblock content %}
+
+
+
+    <!-- Footer Start -->
+    <div class="fotterpart">
+      .
+         <h1>royfreelance.com, All Right Reserved. Designed and developed By Roy</h1>
+         <h1>send an email to roypapan75@gmail.com</h1>
+    </div>
+      <!-- Footer End -->
+    
+
+
+<!-- JavaScript Libraries -->
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="{% static 'lib/wow/wow.min.js' %}"></script>
+<script src="{% static 'lib/easing/easing.min.js' %}"></script>
+<script src="{% static 'lib/waypoints/waypoints.min.js' %}"></script>
+<script src="{% static 'lib/owlcarousel/owl.carousel.min.js' %}"></script>
+<script src="{% static 'lib/tempusdominus/js/moment.min.js' %}"></script>
+<script src="{% static 'lib/tempusdominus/js/moment-timezone.min.js' %}"></script>
+<script src="{% static 'lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js' %}"></script>
+
+<!-- Template Javascript -->
+<script src="{% static 'js/main.js' %}"></script>
+
+    <!-- JavaScript -->
+    <script>
+        const body = document.querySelector("body");
+const darkLight = document.querySelector("#darkLight");
+const sidebar = document.querySelector(".sidebar");
+const submenuItems = document.querySelectorAll(".submenu_item");
+const sidebarOpen = document.querySelector("#sidebarOpen");
+const sidebarClose = document.querySelector(".collapse_sidebar");
+const sidebarExpand = document.querySelector(".expand_sidebar");
+sidebarOpen.addEventListener("click", () => sidebar.classList.toggle("close"));
+
+sidebarClose.addEventListener("click", () => {
+  sidebar.classList.add("close", "hoverable");
+});
+sidebarExpand.addEventListener("click", () => {
+  sidebar.classList.remove("close", "hoverable");
+});
+
+sidebar.addEventListener("mouseenter", () => {
+  if (sidebar.classList.contains("hoverable")) {
+    sidebar.classList.remove("close");
+  }
+});
+sidebar.addEventListener("mouseleave", () => {
+  if (sidebar.classList.contains("hoverable")) {
+    sidebar.classList.add("close");
+  }
+});
+
+darkLight.addEventListener("click", () => {
+  body.classList.toggle("dark");
+  if (body.classList.contains("dark")) {
+    document.setI
+    darkLight.classList.replace("bx-sun", "bx-moon");
+  } else {
+    darkLight.classList.replace("bx-moon", "bx-sun");
+  }
+});
+
+submenuItems.forEach((item, index) => {
+  item.addEventListener("click", () => {
+    item.classList.toggle("show_submenu");
+    submenuItems.forEach((item2, index2) => {
+      if (index !== index2) {
+        item2.classList.remove("show_submenu");
+      }
+    });
+  });
+});
+
+if (window.innerWidth < 768) {
+  sidebar.classList.add("close");
+} else {
+  sidebar.classList.remove("close");
+}
+
+    </script>
+    <!-- <script src="script.js"></script> -->
+  </body>
+</html>
+
